@@ -1731,7 +1731,7 @@ var d41d8cd98f00b204e9800998ecf8427e_LibraryDetectorTests = {
     },
     'styled-component': {
         id: 'styled-component',
-        icon: 'drupal',
+        icon: 'style-component',
         url: 'https://styled-components.com',
         npm: 'styled-component',
         test: function (win) {
