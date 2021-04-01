@@ -1728,5 +1728,31 @@ var d41d8cd98f00b204e9800998ecf8427e_LibraryDetectorTests = {
 
             return false;
         }
+    },
+    'styled-component': {
+        id: 'styled-component',
+        icon: 'styled-component',
+        url: 'https://styled-components.com',
+        npm: 'styled-component',
+        test: function (win) {
+            try {
+                let element = document.querySelectorAll('style[data-styled], style[data-styled-components], [sc-component-id]');
+                if (element && element.length && element[0].textContent === '') {
+                    return {version: UNKNOWN_VERSION};
+                }
+
+                element = document.querySelectorAll('style[data-styled-version]');
+
+                if (element && element.length) {
+                    const versionId = element[0].getAttribute('data-styled-version');
+                    if (/(^.+$)\\;version:\\1/.test(versionId)) {
+                        return {version: versionId}
+                    }
+                }
+            } catch (e) {
+                console.info(e);
+            }
+            return false;
+        }
     }
 };
