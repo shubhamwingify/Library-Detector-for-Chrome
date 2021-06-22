@@ -1754,5 +1754,22 @@ var d41d8cd98f00b204e9800998ecf8427e_LibraryDetectorTests = {
             }
             return false;
         }
+    },
+    'PageFly': {
+        id: 'pagefly',
+        icon: 'pagefly.png',
+        url: 'https://pagefly.io',
+        npm: 'pagefly',
+        test: function (win) {
+            try {
+                var scripts = document.querySelectorAll('script[src*="pagefly.io"]');
+                if (scripts.length) {
+                    return {version: UNKNOWN_VERSION}
+                }
+            } catch (e) {
+                console.info(e);
+            }
+            return false;
+        }
     }
 };
